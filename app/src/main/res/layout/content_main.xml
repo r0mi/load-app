@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".MainActivity"
+        tools:showIn="@layout/activity_main">
+
+        <ImageView
+            android:id="@+id/download_icon"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/download_image_size"
+            android:background="@color/colorPrimaryDark"
+            app:layout_constraintBottom_toTopOf="@+id/download_selection_group"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            app:srcCompat="@drawable/ic_cloud_download_24"
+            android:contentDescription="@string/main_image_description" />
+
+        <RadioGroup
+            android:id="@+id/download_selection_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layout_margin"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/custom_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/download_icon">
+
+            <RadioButton
+                android:id="@+id/glide_radio_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/keyline_4"
+                android:text="@string/description_glide" />
+
+            <RadioButton
+                android:id="@+id/loadapp_radio_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/keyline_4"
+                android:text="@string/description_loadapp" />
+
+            <RadioButton
+                android:id="@+id/retrofit_radio_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/keyline_4"
+                android:text="@string/description_retrofit" />
+
+            <RadioButton
+                android:id="@+id/custom_radio_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/description_custom">
+
+            </RadioButton>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/custom_input"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/url_hint">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/custom_url_text_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textUri"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </RadioGroup>
+
+        <com.udacity.LoadingButton
+            android:id="@+id/custom_button"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_margin="@dimen/layout_margin"
+            app:backgroundColor="@color/colorPrimary"
+            app:buttonTextColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/download_selection_group"
+            app:loadingBackgroundColor="@color/colorPrimaryDark"
+            app:loadingCircleColor="@color/colorAccent"
+            app:textSize="@dimen/default_text_size" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
